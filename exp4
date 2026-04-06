@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class calculator
+{
+    private :
+    float a, b;
+    public:
+    void getdata(float x , float y)
+    {
+        a = x;
+        b=y;
+    }
+    inline float add()
+    {
+        return a+b;
+    }
+    inline float subtract()
+    {
+        return a-b;
+    }
+    inline float multiply()
+    {
+        return a*b;
+    }
+    inline float divide()
+    {
+        return a/b;
+    }
+};
+int main()
+{
+    calculator calc;
+    float x , y;
+    cout <<"enter two numbers: ";
+    cin >>x>>y;
+    calc.getdata(x, y);
+    cout << "\nAddition = " << calc.add();  
+    cout << "\nSubtraction = " << calc.subtract(); 
+    cout << "\nMultiplication = " << calc.multiply(); 
+    cout << "\nDivision = " << calc.divide(); 
+    return 0;
+}
