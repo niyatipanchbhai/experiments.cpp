@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+template<typename t>
+void swapvalues(t&a, t&b)
+{
+    t temp = a;
+    a=b;
+    b = temp;
+}
+int main()
+{
+    int x= 10, y=20;
+    float p = 5.5 , q=9.8;
+    char c1 ='A',c2='Z';
+    cout << "swapping integers"<<endl;
+    cout << "befor swap : x="<<x<<",y"<<y<<endl;
+    swapvalues(x,y);
+    cout <<"after swap: x="<<x<<",y"<<y<<endl;
+    cout <<"swapping floats "<<endl;
+    cout << "before swap:p= "<<p << ",q="<<q<<endl;
+    cout <<"swapping characters"<<endl;
+    cout <<"before swap : c1= "<<c1<<",c2="<<c2<<endl;
+    swapvalues(c1,c2);
+    cout <<"after swap :c1="<<c1<<",c2="<<c2<<endl;
+    return 0;
+}
