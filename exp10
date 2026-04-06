@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+class calculator
+{
+    public:
+    int add (int a , int b)
+    {
+        return a+b;
+    }
+    int add(int a, int b , int c)
+    {
+        return a+b+c;
+    }
+    float add (float a , float b )
+    {
+        return a+b;
+    }
+};
+class shape {
+    public:
+    virtual void area()
+    {
+        cout << "area of generic shape"<< endl;
+    }
+};
+class rectangle :public shape
+{
+    private:
+    float length , width;
+    public:
+    rectangle (float l, float w)
+    {
+        length= l;
+        width = w;
+    }
+    void area() override
+    {
+        cout << "area of rectangle = "<< length *width << endl;
+    }
+
+};
+class circle : public shape
+{
+    private :
+    float radius;
+    public:
+    circle (float r)
+    {
+        radius = r;
+    }
+    void area()override
+    {
+        cout << "area of circle"<<3.1416*radius*radius<<endl;
+
+    }
+};
+// main function
+int main()
+{
+    calculator calc;
+    cout<< "compile tikme polymorphism (function overloading )\n";
+    cout <<"sum of 2 integers : "<<calc.add(10,20)<<endl;
+    cout <<"sum of 3 integers : "<<calc.add(5, 10,15)<<endl;
+    cout <<"sum of 2 float : "<<calc.add(2.5f , 3.5f)<<endl;
+    shape *s1,*s2;
+    rectangle rect(10,5);
+    circle circ(7);
+    s1 = &rect;
+    s2 = &circ;
+    cout << "run time polymorphism (function overloading)\n";
+    s1->area();
+    s2->area();
+    return 0;
+};
