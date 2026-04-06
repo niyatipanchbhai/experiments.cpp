@@ -1,0 +1,66 @@
+#include <iostream>
+#include<string>
+using namespace std;
+class shape // abstract class
+{
+    public:
+    virtual void area()=0; // pure virtual function
+    virtual void perimeter()=0;
+};
+class rectangle: public shape
+{
+    private:
+    float length,width;
+    public:
+    void getdata() // function to accept rectangle dimensions
+    {
+        cout << "enter lenght of rectangle";
+        cin>> length;
+        cout<< "enter width of rectangle";
+        cin >> width;
+    }
+    void area()
+    {
+        cout << "area of rectangle =" << length*width<<endl;
+    
+    }
+    void perimeter ()
+    {
+        cout<<"perimeter of rectangle"<< 2*(length + width)<<endl;
+
+    }
+};
+class circle : public shape{
+    private :
+    float radius;
+    public:
+    void getdata()
+    {
+        cout<<"enter the radius of circle";
+        cin>> radius;
+    
+    }
+    void area()
+    {
+        cout<<"area of circle "<< 3.1416*radius*radius<<endl;
+    }
+    void perimeter()
+    {
+        cout<< "perimeter of area"<< 2*3.1416*radius<<endl;
+    }
+};
+int main()
+{
+    rectangle rect;
+    circle circ;
+    cout<< "\n---rectangle---\n"<<"\n";
+    rect.getdata();
+    rect.area();
+    rect.perimeter();
+    cout << "\n---circle---\n";
+    circ.getdata();
+    circ.area();
+    circ.perimeter();
+    return 0;
+
+};
