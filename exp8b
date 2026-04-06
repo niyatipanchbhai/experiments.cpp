@@ -1,0 +1,86 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class employee
+{
+    protected:
+    int empid;
+    string empname;
+    float basicsalary;
+    public:
+    void getemployeeinfo()
+    {
+        cout <<"enter employee id:";
+        cin>> empid;
+        cin.ignore();
+        cout<<"enter employee name:";
+        getline (cin,empname);
+        cout <<"enter basic salary :";
+        cin>>basicsalary;
+    }
+};
+class department:public employee 
+{
+    protected:
+    string deptname;
+    public:
+    void getdepartmentinfo()
+
+    {
+        cin.ignore();
+        cout <<"enter department name : ";
+        getline(cin , deptname);
+}
+};
+class pf:public department{
+    protected:
+    float pfamount;
+    public:
+    void calculatepf()
+    {
+        pfamount = basicsalary*0.12;
+
+    }
+    void displaypfinfo()
+    {
+        cout <<"\n---employee details (multilevel inheritance)---\n";
+        cout<<"employee id: "<<empid<<endl;
+        cout <<"employee name:"<< empname<<endl;
+        cout <<"department:"<<deptname<<endl;
+        cout<<"basic salary : "<<basicsalary<<endl;
+        cout <<"pf amount (12%): "<<pfamount <<endl;
+    }
+};
+class project :public employee
+{
+    protected :
+    string projectname;
+    public:
+    void getprojectinfo()
+    {
+        cin.ignore();
+        cout<<"enter project name";
+        getline(cin , projectname);
+    }
+    void displayprojectinfo()
+    {
+        cout<<"\n employee project info ";
+        cout <<"employee id"<<empid<<endl;
+        cout<<"employee name"<<empname<<endl;
+        cout <<"project name"<< projectname<<endl;
+    }
+};
+int main()
+{
+    pf emp1;
+    cout << "enter employee info for pf";
+    emp1.getemployeeinfo();
+    emp1.getdepartmentinfo();
+    emp1.displaypfinfo();
+    project emp2;
+    cout<<"\n enter employee info for project ";
+    emp2.getemployeeinfo();
+    emp2.getprojectinfo();
+    emp2.displayprojectinfo();
+    return 0;
+}
