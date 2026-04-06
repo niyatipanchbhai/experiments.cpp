@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+class shape 
+{
+    public:
+    virtual void display()
+    {
+        cout <<"this is a generic shape ."<<endl;
+    }
+};
+class rectangle :public shape
+{
+    private:
+    float length , width ;
+    public:
+    rectangle(float l , float w)
+    {
+        length = l ;
+        width = w;
+    }
+    void display()override 
+    {
+        cout << "this is a rectangle with length :"<<length <<"and with "<<width <<"."<<endl;
+
+    }
+    float area()
+    {
+        return length *width ;
+    }
+    float operator+(rectangle r)
+    {
+        return this-> area ()+r.area();
+    }
+};
+int main()
+{
+    rectangle rect1(5,10);
+    rectangle rect2(3,4);
+    float totalarea = rect1 + rect2;
+    cout << "operator overloading "<<endl;
+    cout <<"area of rect1 : "<<rect1.area()<<endl;
+    cout << "area od rect2: "<<rect2.area()<<endl;
+    cout <<"total area (rect1+rect2)using overloaded +"<<endl;
+    shape*s;
+    rectangle rect3(7,2);
+    s=&rect3;
+    cout << "\n function overloading "<<endl;
+    s->display();
+    return 0;
+
+
+}
